@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { withBase } from "@/lib/basePath";
 
 /**
  * Shows an image from /public. If the file does not exist yet, an elegant
@@ -40,7 +41,7 @@ export function ImageSlot({
         // eslint-disable-next-line @next/next/no-img-element
         <img
           ref={ref}
-          src={src}
+          src={withBase(src)}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           fetchPriority={priority ? "high" : "auto"}

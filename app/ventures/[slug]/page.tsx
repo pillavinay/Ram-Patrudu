@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getVenture, ventures, ventureHref } from "@/content/ventures";
 import { VenturePage } from "@/components/ventures/VenturePage";
+import { withBase } from "@/lib/basePath";
 
 /**
  * Creates one page per company at build time:
@@ -26,15 +27,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const clean = (s: string) => (s.startsWith("[") ? "" : s);
   const description =
     clean(v.shortDescription) || `${v.name} — a venture by Ram Patrudu, entrepreneur, business leader and co-founder.`;
-  const og = `/og/${v.slug}.png`;
+  const og = withBase(`/og/${v.slug}.png`);
   return {
     title: v.name,
     description,
-    alternates: { canonical: ventureHref(v.slug) },
+    alternates: { canonical: withBase(ventureHref(v.slug)) },
     openGraph: {
       title: `${v.name} | Ram Patrudu`,
       description,
-      url: ventureHref(v.slug),
+      url: withBase(ventureHref(v.slug)),
       images: [{ url: og, width: 1200, height: 630, alt: v.name }],
     },
     twitter: { card: "summary_large_image", title: `${v.name} | Ram Patrudu`, description, images: [og] },
