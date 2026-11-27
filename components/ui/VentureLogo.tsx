@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Venture } from "@/content/ventures";
+import { withBase } from "@/lib/basePath";
 
 /** Company logo from /public/images/ventures/<slug>/logo.png, or a monogram until it's added. */
 export function VentureLogo({ venture, size = 48, className = "" }: { venture: Venture; size?: number; className?: string }) {
@@ -19,7 +20,7 @@ export function VentureLogo({ venture, size = 48, className = "" }: { venture: V
       // eslint-disable-next-line @next/next/no-img-element
       <img
         ref={ref}
-        src={venture.images.logo}
+        src={withBase(venture.images.logo)}
         alt={`${venture.name} logo`}
         width={size}
         height={size}
