@@ -1,0 +1,31 @@
+/* ==========================================================================
+   BRAND THEME — the ONLY file you need to edit to change the website colours.
+   --------------------------------------------------------------------------
+   ⚠️ PROVISIONAL PALETTE: near-black + warm off-white + red-orange,
+   matched to the reference site. Replace once the final colours are confirmed.
+   Every page, button, line and highlight reads from these variables.
+   ========================================================================== */
+
+:root {
+  /* Backgrounds */
+  --brand-bg: #0e0e0e;          /* page background */
+  --brand-surface: #151515;     /* cards, menus */
+  --brand-surface-2: #1c1c1c;   /* raised cards, inputs */
+
+  /* Lines & text */
+  --brand-line: rgb(236 235 227 / 0.1);
+  --brand-text: #ecebe3;        /* main text (warm off-white) */
+  --brand-muted: #8e8d87;       /* secondary text */
+
+  /* Accent (highlight words, REC dot, buttons) */
+  --brand-accent: #e83c22;
+  --brand-accent-ink: #0e0e0e;  /* text colour placed ON the accent */
+
+  /* Fonts (loaded in app/layout.tsx) */
+  --font-display-family: "Archivo Variable", "Arial Narrow", "Helvetica Neue", sans-serif; /* condensed headings & numbers */
+  --font-body-family: "Archivo Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono-family: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* How narrow the big headings are: 62% (very condensed) … 100% (normal) */
+  --display-stretch: 66%;
+}
